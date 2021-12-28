@@ -1,6 +1,7 @@
 
 <html>
 <div id="topSpace"></div>
+<h2>Online Voting System</h2>
 <link rel="stylesheet" href="styles.css">
 <div class="wrapper">
 <div><a href="user\otp.php"><button type="submit" class="button">Voter Login</video></button></a></div>
