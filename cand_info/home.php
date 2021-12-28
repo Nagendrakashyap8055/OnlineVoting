@@ -4,7 +4,7 @@
 <head>
 
 </head>
-
+<h2>Online Voting System</h2>
 <body>
 
 
