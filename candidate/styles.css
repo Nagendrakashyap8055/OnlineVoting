@@ -45,19 +45,8 @@ body{
     cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
-
-
-input[type=date]
-, select {
-    width: 100%;
-    padding: 12px ;
-    margin: 8px ;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
+  
+  
   input[type=text], select {
     width: 100%;
     padding: 12px 20px;
@@ -110,7 +99,4 @@ input[type=date]
     padding: 20px;
    margin-top: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  .attri{
-      font-family: Verdana, sans-serif;
   }

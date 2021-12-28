@@ -1,7 +1,7 @@
 <?php
 // Include config file
-require_once "user_signup.php";
-$link = mysqli_connect("localhost", "root", "","login");
+require_once "cand_signup.php";
+$link = mysqli_connect("localhost", "root", "","voting");
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $username_err = "Username can only contain letters, numbers, and underscores.";
     } else{
         // Prepare a select statement
-        $sql = "SELECT id FROM users WHERE username = ?";
+        $sql = "SELECT id FROM candidate_login WHERE username = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -67,7 +67,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty($username_err) && empty($password_err) && empty($confirm_password_err)){
         
         // Prepare an insert statement
-        $sql = "INSERT INTO users (username, password) VALUES (?, ?)";
+        $sql = "INSERT INTO candidate_login (username, password) VALUES (?, ?)";
          
         if($stmt = mysqli_prepare($link, $sql)){
             // Bind variables to the prepared statement as parameters
@@ -80,7 +80,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             // Attempt to execute the prepared statement
             if(mysqli_stmt_execute($stmt)){
                 // Redirect to login page
-                header("location: user_login.php");
+                header("location: cand_login.php");
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
             }
@@ -109,7 +109,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <div id="topSpace"></div>
     <div class="wrapper">
 
-        <h2>Sign Up</h2>
+        <h2>Candidate Sign Up</h2>
         <p>Please fill this form to create an account.</p>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
             <div class="form-group">
@@ -132,7 +132,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 <button type="submit" class="button">Submit</video></button>
                 <button type="reset" class="button">Reset</button>
             </div>
-            <p>Already have an account? <a href="user_login.php">Login here</a>.</p>
+            <p>Already have an account? <a href="cand_login.php">Login here</a>.</p>
             <nav>
         </form>
     </div>    
