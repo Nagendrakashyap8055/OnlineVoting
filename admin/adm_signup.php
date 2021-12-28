@@ -1,7 +1,7 @@
 <?php
 // Include config file
 require_once "adm_signup.php";
-$link = mysqli_connect("localhost", "root", "","login");
+$link = mysqli_connect("localhost", "root", "","voting");
 // Define variables and initialize with empty values
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
