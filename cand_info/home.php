@@ -4,7 +4,15 @@
 <link rel="stylesheet" href="styles.css">
 <div class="wrapper">
 <h2>CANDIDATE INFORMATION</h2>
-</div>
+<center>
+  <div class="wrapper">
+<table id="customers">
+    <tr>
+    <th>Candidate id</th>
+    <th>Name</th>
+    <th>Party name</th>
+    <th>Party symbol</th>
+
 </html>
 <?php
 $servername = "localhost";
@@ -19,16 +27,28 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT candidate_id, name FROM candidate";
+$sql = "SELECT candidate_id, name,party_name,party_symbol FROM candidate";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["candidate_id"]. " - Name: " . $row["name"].  "<br>";
+    echo '
+    
+  </tr>
+        <td>'.$row["candidate_id"].'</td>
+        <td>'.$row["name"].'</td>
+        <td>'.$row["party_name"].'</td>
+        <td>'.$row["party_symbol"].'</td>
+      </tr>';
   }
-} else {
+  
+} 
+else {
   echo "0 results";
 }
 $conn->close();
 ?>
+</table></div>
+</center>
+</div>
