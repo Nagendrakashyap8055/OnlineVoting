@@ -29,16 +29,18 @@
     // Taking all 5 values from the form data(input)
     $name = $_REQUEST['name'];
     $dob = $_REQUEST['dob'];
+
+    $date = date_format(date_create($dob),"Y-m-d H:i:s");
     $cand_id = $_REQUEST['cand_id'];
     $gender=$_REQUEST['gender'];
     $phone= $_REQUEST['phone'];
     $partyname= $_REQUEST['party_name'];
     $partysymbol= $_REQUEST['party_symbol'];
-    
+      
 
     // Performing insert query execution
     // here our table name is college
-    $sql = "INSERT INTO candidate (candidate_id,name,dob,gender,party_name,party_symbol,phone) VALUES ('$cand_id','$name',$dob,'$gender','$partyname','$partysymbol',$phone)";
+    $sql = "INSERT INTO candidate (candidate_id,name,dob,gender,party_name,party_symbol,phone) VALUES ('$cand_id','$name','$date','$gender','$partyname','$partysymbol',$phone)";
 
     if(mysqli_query($conn, $sql)){
         echo "<h3>data stored in a database successfully."
