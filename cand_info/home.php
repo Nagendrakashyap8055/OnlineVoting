@@ -27,7 +27,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT candidate_id, name,party_name,party_symbol FROM candidate";
+$sql = "SELECT * FROM vw_candidate";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

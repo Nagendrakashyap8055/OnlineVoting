@@ -67,7 +67,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT candidate_id, name,party_name,party_symbol FROM candidate";
+$sql = "SELECT * FROM vw_candidate";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -82,7 +82,7 @@ if ($result->num_rows > 0) {
         <td>'.$row["party_symbol"].'</td>
       </tr>';
   }
-  echo'<button type="submit" class="button" >'."Vote for".$row["candidate_id"]. '</button>';
+  //echo'<button type="submit" class="button" >'."Vote for".$row["candidate_id"]. '</button>';
 } 
 else {
   echo "0 results";
