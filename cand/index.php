@@ -29,7 +29,6 @@
         <label>Phone Number</label>
         <input type="text" name="phone" required >
         <button  type="submit" class="button" value="Submit">REGISTER</button>
-        <!-- <input type="submit" class="button" value="Submit"> -->
     </form>
 </div>
 </body>

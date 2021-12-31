@@ -9,44 +9,23 @@
 <div id="topSpace"></div>
     <link rel="stylesheet" href="styles.css">
 <center><div class="wrapper">
-    <div class="wrapper">
-    <?php
-
-    // servername => localhost
-    // username => root
-    // password => empty
-    // database name => login
-    $conn = mysqli_connect("localhost", "root", "", "voting");
-
-    // Check connection
-    if($conn === false){
-        die("ERROR: Could not connect. "
-            . mysqli_connect_error());
-    }
-
-    // Taking all 5 values from the form data(input)
-    $name = $_REQUEST['name'];
-    $phone = $_REQUEST['phone'];
-   
-
-    // Performing insert query execution
-    // here our table name is college
-    $sql = "INSERT INTO votes(name,phone) VALUES ('$name',$phone)";
-
-    if(mysqli_query($conn, $sql)){
-        echo "<h3>Data stored in a database successfully.</h3>";
-
-        echo nl2br("\n$name\n $phone\n ");
-    } else{
-        echo "ERROR: Hush! Sorry $sql. "
-            . mysqli_error($conn);
-    }
-
-    // Close connection
-    mysqli_close($conn);
-    ?></div>
+    
+         
+    <link rel="stylesheet" href="styles.css">
+<div class="wrapper">
+<h2>VOTE</h2>
+    <form action="insert.php" method="post">
+    <div class="form-group">
+    <label> Name </label>
+        <input type="text"  name="name" required >
+        
+        <label> Phone </label><br>
+        <input type="text" name="phone"  required >
+       
+        </div>
+   </div>
      <div class="wrapper">
-<table id="customers">
+<table >
     <tr>
     <th>Candidate id</th>
     <th>Name</th>
@@ -67,31 +46,28 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM vw_candidate";
+$sql = "SELECT candidate_id,name,party_name,party_symbol FROM candidate";
 $result = $conn->query($sql);
-
 if ($result->num_rows > 0) {
   // output data of each row
   while($row = $result->fetch_assoc()) {
+$cand=$row["candidate_id"];
     echo '
     
   </tr>
-        <td>'.$row["candidate_id"].'</td>
-        <td>'.$row["name"].'</td>
-        <td>'.$row["party_name"].'</td>
-        <td>'.$row["party_symbol"].'</td>
-      </tr>';
+    <td>'.$row["candidate_id"].'</td>
+    <td>'.$row["name"].'</td>
+    <td>'.$row["party_name"].'</td>
+    <td>'.$row["party_symbol"].'</td>
+    <td><button  class ="button" type="submit" value="Submit" name="vote">Vote</button></td>
+  </tr>';
   }
-  //echo'<button type="submit" class="button" >'."Vote for".$row["candidate_id"]. '</button>';
-} 
-else {
-  echo "0 results";
 }
-$conn->close();
 ?>
 </table></div></div>
 </center>
+
+</form>
 </body>
 
 </html>
-<?php

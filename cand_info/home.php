@@ -40,9 +40,11 @@ if ($result->num_rows > 0) {
         <td>'.$row["name"].'</td>
         <td>'.$row["party_name"].'</td>
         <td>'.$row["party_symbol"].'</td>
+       
       </tr>';
+      
   }
-  
+  //echo'<button type="submit" class="button" >'."Vote for".$row["candidate_id"]. '</button>';
 } 
 else {
   echo "0 results";

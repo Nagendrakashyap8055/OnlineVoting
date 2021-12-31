@@ -10,10 +10,6 @@
 <center>
     <?php
 
-    // servername => localhost
-    // username => root
-    // password => empty
-    // database name => login
     $conn = mysqli_connect("localhost", "root", "", "voting");
 
     // Check connection
