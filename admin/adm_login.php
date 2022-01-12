@@ -104,7 +104,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 <div id="topSpace"></div>
     <div class="wrapper">
         <h2>Admin Login</h2>
-        <p>Please fill in your credentials to login.</p>
 
         <?php 
         if(!empty($login_err)){

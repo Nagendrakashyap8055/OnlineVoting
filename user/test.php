@@ -8,7 +8,7 @@
 <body>
 <div id="topSpace"></div>
     <link rel="stylesheet" href="styles.css">
-<center><div class="wrapper">
+<div class="wrapper">
     
          
     <link rel="stylesheet" href="styles.css">
@@ -20,11 +20,12 @@
         <input type="text"  name="name" required >
         
         <label> Phone </label><br>
-        <input type="text" name="phone"  required >
+        <input type="text" name="phone" minlength="10"  required >
        
         </div>
    </div>
      <div class="wrapper">
+     <center>
 <table >
     <tr>
     <th>Candidate id</th>
@@ -59,7 +60,7 @@ $cand=$row["candidate_id"];
     <td>'.$row["name"].'</td>
     <td>'.$row["party_name"].'</td>
     <td>'.$row["party_symbol"].'</td>
-    <td><button  class ="button" type="submit" value="Submit" name="vote">Vote</button></td>
+    <td><button  class ="button" type="submit" value ="'.$row["candidate_id"].'" name="vote" id="vote_btn">Vote</button></td>
   </tr>';
   }
 }

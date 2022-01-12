@@ -12,16 +12,16 @@
     <link rel="stylesheet" href="styles.css">
     <form action="test.php" method="post">
 <div class="wrapper">
-    <div class="form-group">
-    <h2>CANDIDATE REGISTRATION</h2>
+ <div class="form-group">
+    <h2>Check out</h2>
     <label>Candidate Id </label>
         <input type="text" placeholder="Candidate id must be of the format CAND001" name="cand_id" required >
         <label>Name</label>
         <input type="text" name="name" required >
         <label>Date of Birth</label><br>
-        <input type="date" name="dob"  required><BR>
+        <input type="date" name="dob"  required><BR><br>
         <label>Gender</label>
-        <input type="text" name="gender" required >
+        <input type="text" name="gender" placeholder="Male or Female"required >
         <label>Party Name</label><br>
         <input type="text" name="party_name"  required>
         <label>Party Symbol</label><br>
